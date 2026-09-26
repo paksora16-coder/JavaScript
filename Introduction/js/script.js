@@ -19,15 +19,15 @@ misionInstagram(name)
 
 console.log("\n--- EJERCICIO CONDICIONALES ---");
 
-if (edad === 18) {
+if (age === 18) {
   console.log("Tienes exactamente 18 años, ¡acabas de alcanzar la mayoría de edad!");
-} else if (edad > 18) {
+} else if (age > 18) {
   console.log("Eres mayor de edad.");
 } else {
   console.log("Eres menor de edad.");
 }
 
-if (edad >= 18 && proyectoFavorito !== "") {
+if (age >= 18 && proyectoFavorito !== "") {
   console.log(`Validación cumplida: Es mayor o igual a 18 años y su proyecto actual es: ${proyectoFavorito}`);
 }
 
@@ -47,8 +47,8 @@ for (let i = 1; i <= 10; i++) {
   }
 }
 
-console.log("\n3. Recorrido de proyectos/herramientas favoritas:");
-const herramientas = ["Autodesk Maya", "ZBrush", "Blender", "Photoshop"];
+console.log("\n3. Recorrido de herramientas favoritas:");
+const herramientas = ["Vinil (wrap)", "Pestañadora de salpicaderas", "Remachadora de tuercas roscadas", "Taladro inalámbrico y brocas escalonadas"];
 for (let i = 0; i < herramientas.length; i++) {
   console.log(`Herramienta ${i + 1}: ${herramientas[i]}`);
 }
