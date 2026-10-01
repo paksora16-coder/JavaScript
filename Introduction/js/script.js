@@ -59,3 +59,51 @@ while (contador >= 1) {
   console.log(contador);
   contador--;
 }
+
+
+let pokemon1={
+  name: "Squirtle" ,
+  type: "Agua" ,
+  number: 4 ,
+  description: "Tortuga de agua que lanza chorros de agua por la boca."
+};
+
+
+
+let pokemon2={
+  name: "Warturtle" ,
+  type: "Agua" ,
+  number: 5 ,
+  description: "Tortuga de agua más grande que lanza chorros de agua por la boca."
+};
+
+let numbers = [1,2,"3",4,5];
+
+let pokedex = [pokemon1, pokemon2];
+
+let cochecitosTuneados = [
+  {
+    name: "BMW Serie 3" , 
+    motor: "V6" ,
+    description: "Reyes del drift amateur." ,
+  },{
+    name: "Nissan 350Z" ,
+    motor: "V6" ,
+    description: "Buen torque en bajas revoluciones." ,
+  },{
+    name: "Mazda MX-5 Miata" ,
+    motor: "V4" ,
+    description: "Económico de mantener y ligero." ,
+  },{
+    name: "Nissan Skyline" ,
+    motor: "Inline-6" ,
+    description: "Clásicos y leyendas del drift." ,
+  },{
+    name: "Mitsubishi Lancer Evolution" ,
+    motor: "4G63T" ,
+    description: "Famoso por su sistema de control dinámico AYC y su tracción total implacable en asfalto y tierra."
+  },
+];
+
+console.log(cochecitosTuneados);
+console.log(cochecitosTuneados[3].name);
