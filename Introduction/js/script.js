@@ -81,29 +81,125 @@ let numbers = [1,2,"3",4,5];
 
 let pokedex = [pokemon1, pokemon2];
 
+let coche={
+   name: "BMW Serie 3" , 
+    motor: "V6" ,
+    description: "Reyes del drift amateur." 
+};
+
 let cochecitosTuneados = [
   {
-    name: "BMW Serie 3" , 
-    motor: "V6" ,
-    description: "Reyes del drift amateur." ,
-  },{
-    name: "Nissan 350Z" ,
-    motor: "V6" ,
-    description: "Buen torque en bajas revoluciones." ,
-  },{
-    name: "Mazda MX-5 Miata" ,
-    motor: "V4" ,
-    description: "Económico de mantener y ligero." ,
-  },{
-    name: "Nissan Skyline" ,
-    motor: "Inline-6" ,
-    description: "Clásicos y leyendas del drift." ,
-  },{
-    name: "Mitsubishi Lancer Evolution" ,
-    motor: "4G63T" ,
-    description: "Famoso por su sistema de control dinámico AYC y su tracción total implacable en asfalto y tierra."
+    name: "BMW Serie 3",
+    motor: "V6",
+    description: "Reyes del drift amateur."
   },
+  {
+    name: "Nissan 350Z",
+    motor: "V6",
+    description: "Buen torque en bajas revoluciones."
+  },
+  {
+    name: "Mazda MX-5 Miata",
+    motor: "V4",
+    description: "Económico de mantener y ligero."
+  },
+  {
+    name: "Nissan Skyline",
+    motor: "Inline-6",
+    description: "Clásicos y leyendas del drift."
+  },
+  {
+    name: "Mitsubishi Lancer Evolution",
+    motor: "4G63T",
+    description: "Famoso por su sistema AYC y tracción total."
+  }
 ];
 
-console.log(cochecitosTuneados);
-console.log(cochecitosTuneados[3].name);
+
+const nuevoCoche = {
+  name: "Toyota Supra",
+  motor: "2JZ",
+  description: "Leyenda del drift y la velocidad."
+};
+let existe = false;
+
+cochecitosTuneados.forEach((coche) => {
+  if (coche.name.toLowerCase() === nuevoCoche.name.toLowerCase()) {
+    existe = true;
+    console.log("El coche ya existe en la lista.");
+  }
+});
+
+if (!existe) {
+  cochecitosTuneados.push(nuevoCoche);
+  console.log("El coche ha sido agregado a la lista.");
+}
+
+
+const cochesV6 = cochecitosTuneados.filter((coche) => coche.motor === "V6");
+console.log("Coches con motor V6:", cochesV6);
+
+
+const nombresCoches = cochecitosTuneados.map((coche) => coche.name);
+console.log("Títulos/Nombres de coches:", nombresCoches);
+
+
+const cocheBuscado = cochecitosTuneados.find((coche) => coche.name === "Nissan 350Z");
+console.log("Coche encontrado:", cocheBuscado);
+
+
+function crearCoche(coche) {
+  cochecitosTuneados.push(coche);
+  console.log(`Coche "${coche.name}" agregado con éxito.`);
+}
+
+
+function leerCoches() {
+  console.log("--- LISTA DE COCHES ---");
+  cochecitosTuneados.forEach((coche, index) => {
+    console.log(`${index + 1}. ${coche.name} | Motor: ${coche.motor} | Desc: ${coche.description}`);
+  });
+}
+
+
+function actualizarCoche(nombre, cambios) {
+  const cocheEncontrado = cochecitosTuneados.find(
+    (coche) => coche.name.toLowerCase() === nombre.toLowerCase()
+  );
+
+  if (cocheEncontrado) {
+    Object.assign(cocheEncontrado, cambios);
+    console.log(`Coche "${nombre}" actualizado correctamente.`);
+  } else {
+    console.log(`No se encontró el coche "${nombre}".`);
+  }
+}
+
+function borrarCoche(nombre) {
+  cochecitosTuneados = cochecitosTuneados.filter(
+    (coche) => coche.name.toLowerCase() !== nombre.toLowerCase()
+  );
+  console.log(`Coche "${nombre}" eliminado de la lista.`);
+}
+
+
+console.log("\n=== DEMOSTRACIÓN CRUD ===");
+console.log("ESTADO INICIAL:", cochecitosTuneados);
+
+console.log("\n--- 1. CREAR ---");
+crearCoche({
+  name: "Nissan 370Z",
+  motor: "VQ37VHR",
+  description: "Tracción trasera ideal para circuito."
+});
+
+console.log("\n--- 2. LEER ---");
+leerCoches();
+
+console.log("\n--- 3. ACTUALIZAR ---");
+actualizarCoche("Nissan 350Z", { motor: "V6 Twin Turbo", description: "Modificado para pistas." });
+
+console.log("\n--- 4. BORRAR ---");
+borrarCoche("Mazda MX-5 Miata");
+
+console.log("\nESTADO FINAL:", cochecitosTuneados);
